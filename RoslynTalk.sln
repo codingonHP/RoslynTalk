@@ -18,6 +18,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PPT", "PPT", "{1FFB30AE-651
 		..\..\..\Roslyn API.pptx = ..\..\..\Roslyn API.pptx
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SyntaxTransformation", "SyntaxTransformation", "{34D34D6B-EAD4-47AF-A148-6E590ABE476A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyntaxTransformation", "SyntaxTransformation\SyntaxTransformation.csproj", "{C6E6A860-E56A-44FF-9D5B-21AACBA9CDE8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SyntaxRewriter", "SyntaxRewriter", "{48CFADCE-4189-4E4D-AAF5-C41C902F790B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypeInferenceRewriter", "TypeInferenceRewriter\TypeInferenceRewriter.csproj", "{B487BA09-10F3-42B3-AC85-6E5A86058E67}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -36,6 +44,14 @@ Global
 		{A28B2EF4-7F4E-4425-92E6-0E1BE1F7E16C}.Debug|x86.Build.0 = Debug|x86
 		{A28B2EF4-7F4E-4425-92E6-0E1BE1F7E16C}.Release|x86.ActiveCfg = Release|x86
 		{A28B2EF4-7F4E-4425-92E6-0E1BE1F7E16C}.Release|x86.Build.0 = Release|x86
+		{C6E6A860-E56A-44FF-9D5B-21AACBA9CDE8}.Debug|x86.ActiveCfg = Debug|x86
+		{C6E6A860-E56A-44FF-9D5B-21AACBA9CDE8}.Debug|x86.Build.0 = Debug|x86
+		{C6E6A860-E56A-44FF-9D5B-21AACBA9CDE8}.Release|x86.ActiveCfg = Release|x86
+		{C6E6A860-E56A-44FF-9D5B-21AACBA9CDE8}.Release|x86.Build.0 = Release|x86
+		{B487BA09-10F3-42B3-AC85-6E5A86058E67}.Debug|x86.ActiveCfg = Debug|x86
+		{B487BA09-10F3-42B3-AC85-6E5A86058E67}.Debug|x86.Build.0 = Debug|x86
+		{B487BA09-10F3-42B3-AC85-6E5A86058E67}.Release|x86.ActiveCfg = Release|x86
+		{B487BA09-10F3-42B3-AC85-6E5A86058E67}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,5 +60,7 @@ Global
 		{E40E6467-BD41-42FA-AC60-E4FE24BFA5EF} = {8B385FE9-82B2-4BB4-AB39-E570DAC443AF}
 		{4172FEBC-45AE-4A91-AF3F-225EBE7FDCE3} = {8B385FE9-82B2-4BB4-AB39-E570DAC443AF}
 		{A28B2EF4-7F4E-4425-92E6-0E1BE1F7E16C} = {2FEB4DE7-F3A4-4F33-A238-FA7C3A4AF2FD}
+		{C6E6A860-E56A-44FF-9D5B-21AACBA9CDE8} = {34D34D6B-EAD4-47AF-A148-6E590ABE476A}
+		{B487BA09-10F3-42B3-AC85-6E5A86058E67} = {48CFADCE-4189-4E4D-AAF5-C41C902F790B}
 	EndGlobalSection
 EndGlobal

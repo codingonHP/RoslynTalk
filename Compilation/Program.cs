@@ -12,6 +12,7 @@ namespace Compilation
     //assembly references and source files.
     //Like the syntax trees, everything in the Symbols API and 
     //the Binding API is immutable.
+    //https://github.com/dotnet/roslyn/wiki/Getting-Started-C%23-Semantic-Analysis
     /// </summary>
     class Program
     {
