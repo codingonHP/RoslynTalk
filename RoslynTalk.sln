@@ -7,6 +7,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TraversingTrees", "Traversi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsingCollectorCS", "UsingCollectorCS\UsingCollectorCS.csproj", "{4172FEBC-45AE-4A91-AF3F-225EBE7FDCE3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SemanticAnalysis", "SemanticAnalysis", "{2FEB4DE7-F3A4-4F33-A238-FA7C3A4AF2FD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SyntaxAnalysis", "SyntaxAnalysis", "{8B385FE9-82B2-4BB4-AB39-E570DAC443AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Compilation", "Compilation\Compilation.csproj", "{A28B2EF4-7F4E-4425-92E6-0E1BE1F7E16C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PPT", "PPT", "{1FFB30AE-651C-4C6D-8117-3D06598FC4F3}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\Roslyn API.pptx = ..\..\..\Roslyn API.pptx
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -21,8 +32,17 @@ Global
 		{4172FEBC-45AE-4A91-AF3F-225EBE7FDCE3}.Debug|x86.Build.0 = Debug|x86
 		{4172FEBC-45AE-4A91-AF3F-225EBE7FDCE3}.Release|x86.ActiveCfg = Release|x86
 		{4172FEBC-45AE-4A91-AF3F-225EBE7FDCE3}.Release|x86.Build.0 = Release|x86
+		{A28B2EF4-7F4E-4425-92E6-0E1BE1F7E16C}.Debug|x86.ActiveCfg = Debug|x86
+		{A28B2EF4-7F4E-4425-92E6-0E1BE1F7E16C}.Debug|x86.Build.0 = Debug|x86
+		{A28B2EF4-7F4E-4425-92E6-0E1BE1F7E16C}.Release|x86.ActiveCfg = Release|x86
+		{A28B2EF4-7F4E-4425-92E6-0E1BE1F7E16C}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E40E6467-BD41-42FA-AC60-E4FE24BFA5EF} = {8B385FE9-82B2-4BB4-AB39-E570DAC443AF}
+		{4172FEBC-45AE-4A91-AF3F-225EBE7FDCE3} = {8B385FE9-82B2-4BB4-AB39-E570DAC443AF}
+		{A28B2EF4-7F4E-4425-92E6-0E1BE1F7E16C} = {2FEB4DE7-F3A4-4F33-A238-FA7C3A4AF2FD}
 	EndGlobalSection
 EndGlobal
