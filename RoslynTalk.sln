@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TraversingTrees", "TraversingTrees\TraversingTrees.csproj", "{E40E6467-BD41-42FA-AC60-E4FE24BFA5EF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsingCollectorCS", "UsingCollectorCS\UsingCollectorCS.csproj", "{4172FEBC-45AE-4A91-AF3F-225EBE7FDCE3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -15,6 +17,10 @@ Global
 		{E40E6467-BD41-42FA-AC60-E4FE24BFA5EF}.Debug|x86.Build.0 = Debug|x86
 		{E40E6467-BD41-42FA-AC60-E4FE24BFA5EF}.Release|x86.ActiveCfg = Release|x86
 		{E40E6467-BD41-42FA-AC60-E4FE24BFA5EF}.Release|x86.Build.0 = Release|x86
+		{4172FEBC-45AE-4A91-AF3F-225EBE7FDCE3}.Debug|x86.ActiveCfg = Debug|x86
+		{4172FEBC-45AE-4A91-AF3F-225EBE7FDCE3}.Debug|x86.Build.0 = Debug|x86
+		{4172FEBC-45AE-4A91-AF3F-225EBE7FDCE3}.Release|x86.ActiveCfg = Release|x86
+		{4172FEBC-45AE-4A91-AF3F-225EBE7FDCE3}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

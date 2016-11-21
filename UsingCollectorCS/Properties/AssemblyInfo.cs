@@ -4,12 +4,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("TraversingTrees")]
-[assembly: AssemblyDescription("Traversing C# code DOM using Roslyn API")]
+[assembly: AssemblyTitle("UsingCollectorCS")]
+[assembly: AssemblyDescription("SyntaxWalkers")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("EMC Corporation")]
-[assembly: AssemblyProduct("TraversingTrees")]
-[assembly: AssemblyCopyright("Vishal Anand")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("UsingCollectorCS")]
+[assembly: AssemblyCopyright("Copyright © EMC Corporation 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
