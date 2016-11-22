@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
@@ -26,23 +27,23 @@ namespace TypeInferenceRewriter
 
         private static Compilation CreateTestCompilation()
         {
-            var programPath = @"..\..\Program.cs";
-            var programText = File.ReadAllText(programPath);
-            var programTree =
+            String programPath = @"..\..\Program.cs";
+            String programText = File.ReadAllText(programPath);
+            SyntaxTree programTree =
                            CSharpSyntaxTree.ParseText(programText)
                                            .WithFilePath(programPath);
 
-            var rewriterPath = @"..\..\TypeInferenceRewriter.cs";
-            var rewriterText = File.ReadAllText(rewriterPath);
-            var rewriterTree =
+            String rewriterPath = @"..\..\TypeInferenceRewriter.cs";
+            String rewriterText = File.ReadAllText(rewriterPath);
+            SyntaxTree rewriterTree =
                            CSharpSyntaxTree.ParseText(rewriterText)
                                            .WithFilePath(rewriterPath);
 
             SyntaxTree[] sourceTrees = { programTree, rewriterTree };
 
-            var mscorlib = MetadataReference.CreateFromFile(typeof(object).Assembly.Location);
-            var codeAnalysis = MetadataReference.CreateFromFile(typeof(SyntaxTree).Assembly.Location);
-            var csharpCodeAnalysis = MetadataReference.CreateFromFile(typeof(CSharpSyntaxTree).Assembly.Location);
+            PortableExecutableReference mscorlib = MetadataReference.CreateFromFile(typeof(object).Assembly.Location);
+            PortableExecutableReference codeAnalysis = MetadataReference.CreateFromFile(typeof(SyntaxTree).Assembly.Location);
+            PortableExecutableReference csharpCodeAnalysis = MetadataReference.CreateFromFile(typeof(CSharpSyntaxTree).Assembly.Location);
 
             PortableExecutableReference[] references = { mscorlib, codeAnalysis, csharpCodeAnalysis };
 
