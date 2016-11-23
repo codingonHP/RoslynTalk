@@ -23,76 +23,40 @@ namespace ClassToStatic
 
         public override void Initialize(AnalysisContext context)
         {
-            context.RegisterSemanticModelAction(AnalyseCodeTreeAction);
+            context.RegisterSyntaxNodeAction(AnalyseCodeTreeAction, SyntaxKind.ClassDeclaration);
         }
 
-        private void AnalyseCodeTreeAction(SemanticModelAnalysisContext context)
+        private void AnalyseCodeTreeAction(SyntaxNodeAnalysisContext context)
         {
-
-            TreeWalker treeWalker = new TreeWalker();
-            treeWalker.Visit(context.SemanticModel.SyntaxTree.GetRoot());
-
-            if (treeWalker.CanBeConvertedToStatic)
+            var classDeclaration = context.Node as ClassDeclarationSyntax;
+            if (classDeclaration == null || classDeclaration.Modifiers.Any(m => m.IsKind(SyntaxKind.StaticKeyword)))
             {
-                var diagnostic = Diagnostic.Create(Rule, context.SemanticModel.SyntaxTree.GetRoot().GetLocation());
+                return;
+            }
+
+            var allMembersAreStatic = classDeclaration.Members.All(IsStaticMember);
+
+            if (allMembersAreStatic)
+            {
+                var diagnostic = Diagnostic.Create(Rule, classDeclaration.Identifier.GetLocation(), classDeclaration.Identifier.Text);
                 context.ReportDiagnostic(diagnostic);
             }
         }
-    }
 
-    class TreeWalker : CSharpSyntaxWalker
-    {
-        public bool CanBeConvertedToStatic { get; private set; }
-
-        public TreeWalker()
+        public bool IsStaticMember(MemberDeclarationSyntax memberDeclaration)
         {
-            CanBeConvertedToStatic = true;
-        }
-
-        public override void VisitMethodDeclaration(MethodDeclarationSyntax node)
-        {
-            if (!CanBeConvertedToStatic)
+            var kind = memberDeclaration.Kind();
+            switch (kind)
             {
-                return;
+                case SyntaxKind.PropertyDeclaration:
+                    return ((PropertyDeclarationSyntax)memberDeclaration).Modifiers.Any(m => m.Kind() == SyntaxKind.StaticKeyword || m.Kind() == SyntaxKind.ConstKeyword);
+                case SyntaxKind.FieldDeclaration:
+                    return ((FieldDeclarationSyntax)memberDeclaration).Modifiers.Any(m => m.Kind() == SyntaxKind.StaticKeyword || m.Kind() == SyntaxKind.ConstKeyword);
+                case SyntaxKind.MethodDeclaration:
+                    return ((MethodDeclarationSyntax)memberDeclaration).Modifiers.Any(m => m.Kind() == SyntaxKind.StaticKeyword || m.Kind() == SyntaxKind.ConstKeyword);
             }
 
-            if (node.Modifiers.All(m => m.Text != "static"))
-            {
-                CanBeConvertedToStatic = false;
-            }
-
-
-            base.VisitMethodDeclaration(node);
-        }
-
-        public override void VisitPropertyDeclaration(PropertyDeclarationSyntax node)
-        {
-            if (!CanBeConvertedToStatic)
-            {
-                return;
-            }
-
-            if (node.Modifiers.All(m => m.Text != "static"))
-            {
-                CanBeConvertedToStatic = false;
-            }
-
-            base.VisitPropertyDeclaration(node);
-        }
-
-        public override void VisitFieldDeclaration(FieldDeclarationSyntax node)
-        {
-            if (!CanBeConvertedToStatic)
-            {
-                return;
-            }
-
-            if (node.Modifiers.All(m => m.Text != "static"))
-            {
-                CanBeConvertedToStatic = false;
-            }
-
-            base.VisitFieldDeclaration(node);
+            return false;
         }
     }
 }
