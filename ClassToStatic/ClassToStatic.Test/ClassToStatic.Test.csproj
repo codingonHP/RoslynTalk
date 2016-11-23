@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{C8C8887E-1DC5-4005-8C3D-2C0A93FBE184}</ProjectGuid>
+    <ProjectGuid>{AF73D5B0-47AD-4C84-A374-E65907A26B95}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ConvertToConstantAnanlyzer.Test</RootNamespace>
-    <AssemblyName>ConvertToConstantAnanlyzer.Test</AssemblyName>
+    <RootNamespace>ClassToStatic.Test</RootNamespace>
+    <AssemblyName>ClassToStatic.Test</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -114,9 +114,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ConvertToConstantAnanlyzer\ConvertToConstantAnanlyzer.csproj">
-      <Project>{8217F930-F916-427F-AD88-F8BF4F15DCE1}</Project>
-      <Name>ConvertToConstantAnanlyzer</Name>
+    <ProjectReference Include="..\ClassToStatic\ClassToStatic.csproj">
+      <Project>{E4072337-06B9-47F6-9CCD-8A1736C524CF}</Project>
+      <Name>ClassToStatic</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

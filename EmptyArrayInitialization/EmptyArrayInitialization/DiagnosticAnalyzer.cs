@@ -41,13 +41,17 @@ namespace EmptyArrayInitialization
                 var field = context.Node as ArrayTypeSyntax;
                 var variableDeclaration = field?.Parent;
                 var arrayCreationExpression = variableDeclaration?.DescendantNodes().OfType<ArrayCreationExpressionSyntax>();
-                var arrayCreationExpressionSyntax = arrayCreationExpression?.FirstOrDefault();
-
-                if (arrayCreationExpressionSyntax?.Initializer?.Expressions != null && arrayCreationExpressionSyntax.Initializer?.Expressions.Count == 0)
+                if (arrayCreationExpression != null && arrayCreationExpression.Any() )
                 {
-                    var diagnostic = Diagnostic.Create(Rule, location: field.GetLocation(), messageArgs:"Remove empty array initilizers");
-                    context.ReportDiagnostic(diagnostic);
+                    var arrayCreationExpressionSyntax = arrayCreationExpression.ToList()[0];
+
+                    if (arrayCreationExpressionSyntax?.Initializer?.Expressions != null && arrayCreationExpressionSyntax.Initializer?.Expressions.Count == 0)
+                    {
+                        var diagnostic = Diagnostic.Create(Rule, location: field.GetLocation(), messageArgs: "Remove empty array initilizers");
+                        context.ReportDiagnostic(diagnostic);
+                    }
                 }
+               
             }
             catch (Exception)
             {
