@@ -2,7 +2,6 @@ using System;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using static Microsoft.CodeAnalysis.CSharp.SyntaxFactory;
 
 namespace SyntaxTransformation
 {
@@ -11,13 +10,13 @@ namespace SyntaxTransformation
     {
         static void Main(string[] args)
         {
-            NameSyntax name = IdentifierName("System");
+            NameSyntax name = SyntaxFactory.IdentifierName("System");
             Console.WriteLine(name.ToString());
 
-            name = QualifiedName(name, IdentifierName("Collections"));
+            name = SyntaxFactory.QualifiedName(name, SyntaxFactory.IdentifierName("Collections"));
             Console.WriteLine(name.ToString());
 
-            name = QualifiedName(name, IdentifierName("Generic"));
+            name = SyntaxFactory.QualifiedName(name, SyntaxFactory.IdentifierName("Generic"));
             Console.WriteLine(name.ToString());
 
             SyntaxTree tree = CSharpSyntaxTree.ParseText(

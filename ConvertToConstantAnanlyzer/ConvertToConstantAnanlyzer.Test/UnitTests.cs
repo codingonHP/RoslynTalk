@@ -37,6 +37,11 @@ namespace ConvertToConstantAnanlyzer.Test
     {
         class TypeName
         {   
+            public void M()
+            {
+                int x = 0 ;
+                Console.WriteLine(x);    
+            }
         }
     }";
             var expected = new DiagnosticResult
