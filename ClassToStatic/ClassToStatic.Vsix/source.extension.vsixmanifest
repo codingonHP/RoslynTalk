@@ -3,7 +3,7 @@
   <Metadata>
     <Identity Id="ClassToStatic.EMC Corporation.c2bbad19-946e-41f1-bf12-b5146d7571fe" Version="1.0" Language="en-US" Publisher="anandv4"/>
     <DisplayName>ClassToStatic</DisplayName>
-    <Description xml:space="preserve">This is a sample diagnostic extension for the .NET Compiler Platform ("Roslyn").</Description>
+    <Description xml:space="preserve">Convert a class to static class if possible</Description>
   </Metadata>
   <Installation>
     <InstallationTarget Version="[14.0,]" Id="Microsoft.VisualStudio.Pro" />

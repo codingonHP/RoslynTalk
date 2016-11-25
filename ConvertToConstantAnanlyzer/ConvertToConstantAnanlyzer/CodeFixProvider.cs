@@ -42,26 +42,14 @@ namespace ConvertToConstantAnanlyzer
 
         private async Task<Document> ConvertToConstAsync(Document document, VariableDeclarationSyntax variableDeclaration, CancellationToken cancellationToken)
         {
-            // Compute new uppercase name.
-            var identifierToken = variableDeclaration;
-            var newName = identifierToken;
-
-            // Get the symbol representing the type to be renamed.
-            var semanticModel = await document.GetSemanticModelAsync(cancellationToken);
-            var typeSymbol = semanticModel.GetDeclaredSymbol(variableDeclaration, cancellationToken);
-
-
-            var newLiteral = SyntaxFactory.ParseExpression("\"TODO : any valid regex goes here..\"")
-                .WithLeadingTrivia(identifierToken?.GetLeadingTrivia())
-                .WithTrailingTrivia(identifierToken?.GetTrailingTrivia())
-                .WithAdditionalAnnotations(Formatter.Annotation);
+            var variableDeclarationWithConst = SyntaxFactory.VariableDeclaration(SyntaxFactory.ParseTypeName($"const {variableDeclaration}"))
+                                                            .WithAdditionalAnnotations(Formatter.Annotation);
 
             var root = await document.GetSyntaxRootAsync(cancellationToken);
-            var newRoot = root.ReplaceNode(identifierToken, newLiteral);
+            var newRoot = root.ReplaceNode(variableDeclaration, variableDeclarationWithConst);
             var newDocument = document.WithSyntaxRoot(newRoot);
 
             return newDocument;
-
         }
     }
 }

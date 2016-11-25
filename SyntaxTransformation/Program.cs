@@ -10,6 +10,7 @@ namespace SyntaxTransformation
     {
         static void Main(string[] args)
         {
+            //Using syntax factory to create syntax tree.
             NameSyntax name = SyntaxFactory.IdentifierName("System");
             Console.WriteLine(name.ToString());
 
